@@ -7,10 +7,11 @@
 }
 
 :root {
+  /* 圖檔更新後請一併改下方 url 與 index.html 內 ?v= 讓快取失效 */
   --cream: #f2efe6;
   --main-bg: #f7f5ef;
   --sidebar-bg: #d4c9b4;
-  --bg-cow: url('../images/cow.jpg');
+  --bg-cow: url('../images/cow.jpg?v=20260412');
   --sidebar-glass: rgba(212, 201, 180, 0.52);
   --main-content-scrim: rgba(247, 245, 239, 0.84);
   --sidebar-ink: #3d3428;
@@ -91,22 +92,32 @@ button {
 }
 
 .sidebar__avatar {
-  width: 112px;
-  height: 112px;
+  --avatar-size: 150px;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  min-width: var(--avatar-size);
+  min-height: var(--avatar-size);
+  max-width: var(--avatar-size);
+  aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--accent2);
   background-color: var(--cream);
+  margin: 0 auto 1rem;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  position: relative;
 }
 
 .sidebar__avatar-img {
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
 }
 
 .sidebar__avatar-placeholder {
@@ -309,8 +320,11 @@ button {
 }
 
 .hero__photo-placeholder {
-  width: 220px;
-  height: 280px;
+  width: min(220px, 100%);
+  max-width: 220px;
+  aspect-ratio: 11 / 14;
+  height: auto;
+  min-height: 0;
   flex-shrink: 0;
   border: 2px solid var(--accent);
   border-radius: 12px;
@@ -328,9 +342,13 @@ button {
 }
 
 .hero__photo {
-  width: 220px;
-  height: 280px;
+  width: min(220px, 100%);
+  max-width: 220px;
+  aspect-ratio: 11 / 14;
+  height: auto;
+  min-height: 0;
   object-fit: cover;
+  object-position: center;
   border: 2px solid var(--accent);
   border-radius: 12px;
   flex-shrink: 0;
@@ -614,9 +632,13 @@ button.card {
 }
 
 .about-photo {
+  display: block;
   width: 100%;
-  aspect-ratio: 3/4;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center;
   border: 2px solid var(--accent);
   border-radius: 12px;
 }
@@ -737,27 +759,27 @@ button.card {
 }
 
 .interest-card--photo::before {
-  background-image: url('../images/photo.jpg');
+  background-image: url('../images/photo.jpg?v=20260412');
 }
 
 .interest-card--music::before {
-  background-image: url('../images/music.jpeg');
+  background-image: url('../images/music.jpeg?v=20260412');
 }
 
 .interest-card--travel::before {
-  background-image: url('../images/travel.jpg');
+  background-image: url('../images/travel.jpg?v=20260412');
 }
 
 .interest-card--movie::before {
-  background-image: url('../images/movie.jpg');
+  background-image: url('../images/movie.jpg?v=20260412');
 }
 
 .interest-card--bake::before {
-  background-image: url('../images/bake.jpg');
+  background-image: url('../images/bake.jpg?v=20260412');
 }
 
 .interest-card--painting::before {
-  background-image: url('../images/painting.jpg');
+  background-image: url('../images/painting.jpg?v=20260412');
 }
 
 .interest-card--photo::after,
