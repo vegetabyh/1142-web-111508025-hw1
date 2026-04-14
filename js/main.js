@@ -32,16 +32,13 @@
   }
 
   function initBackgroundMusic() {
+    const toggleBtn = document.querySelector('[data-bgm-toggle]');
+    if (!toggleBtn) return;
+
     const audio = document.createElement('audio');
     audio.src = '/audio/kiiikiii.mp3';
     audio.preload = 'none';
     audio.loop = true;
-
-    const toggleBtn = document.createElement('button');
-    toggleBtn.type = 'button';
-    toggleBtn.className = 'bgm-toggle';
-    toggleBtn.setAttribute('aria-pressed', 'false');
-    toggleBtn.textContent = '▶ 背景音樂 🎵';
 
     const updateLabel = () => {
       const playing = !audio.paused;
@@ -64,7 +61,7 @@
 
     audio.addEventListener('play', updateLabel);
     audio.addEventListener('pause', updateLabel);
-    document.body.appendChild(toggleBtn);
+    updateLabel();
   }
 
   function initLayout() {
