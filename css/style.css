@@ -49,6 +49,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ctext x='4' y='29' font-size='28'%3E%F0%9F%90%84%3C/text%3E%3C/svg%3E") 6 6, auto;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -57,6 +58,14 @@ img { max-width: 100%; display: block; }
 button {
   font-family: inherit;
   cursor: pointer;
+}
+
+a,
+button,
+[role='button'],
+input[type='button'],
+input[type='submit'] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Ctext x='4' y='29' font-size='28'%3E%F0%9F%90%84%3C/text%3E%3C/svg%3E") 6 6, pointer;
 }
 
 /* ----- App shell ----- */
