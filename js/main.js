@@ -34,8 +34,8 @@
   function initLayout() {
     if (!isMobile()) {
       layout.classList.add('main-open');
-    } else {
-      /* 手機版也預設顯示右側主內容，與桌機閱讀流程一致 */
+    } else if (pathToView() !== 'home') {
+      /* 手機版子頁需直接顯示主內容，首頁則先顯示左側選單 */
       layout.classList.add('main-open');
     }
     syncNav();
@@ -159,6 +159,15 @@
       layout.classList.remove('main-open');
     });
   }
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const isHome = link.getAttribute('data-view') === 'home';
+      if (!isMobile() || !isHome || pathToView() !== 'home') return;
+      e.preventDefault();
+      layout.classList.add('main-open');
+    });
+  });
 
   window.addEventListener('resize', () => {
     if (!isMobile()) layout.classList.add('main-open');
