@@ -15,7 +15,7 @@
     const last = segments[segments.length - 1] || '';
     const base = last.replace(/\.html$/, '');
     if (base === '' || base === 'index') return 'home';
-    const valid = ['about', 'interests', 'portfolio'];
+    const valid = ['about', 'interests', 'portfolio', 'baking'];
     if (valid.includes(base)) return base;
     return 'home';
   }
@@ -36,6 +36,22 @@
     syncNav();
     const scrollMain = document.querySelector('.app-main');
     if (scrollMain) scrollMain.scrollTop = 0;
+
+    const bakingStack = document.getElementById('bakingStack');
+    if (bakingStack) {
+      bakingStack.addEventListener('click', () => {
+        const topCard = bakingStack.querySelector('.bake-card.is-top');
+        if (!topCard || topCard.classList.contains('is-moving')) return;
+        topCard.classList.add('is-moving');
+        window.setTimeout(() => {
+          topCard.classList.remove('is-moving');
+          topCard.classList.remove('is-top');
+          bakingStack.appendChild(topCard);
+          const nextTop = bakingStack.querySelector('.bake-card');
+          if (nextTop) nextTop.classList.add('is-top');
+        }, 420);
+      });
+    }
   }
 
   if (backBtn) {

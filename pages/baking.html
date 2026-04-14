@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>關於我 · 蔡雅涵</title>
+  <title>Baking 日誌 · 蔡雅涵</title>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -26,10 +26,10 @@
         </div>
         <nav class="sidebar__nav" aria-label="主要導覽">
           <a href="/" data-view="home" class="sidebar__nav-btn">首頁</a>
-          <a href="/about" data-view="about" class="sidebar__nav-btn active">關於我</a>
+          <a href="/about" data-view="about" class="sidebar__nav-btn">關於我</a>
           <a href="/interests" data-view="interests" class="sidebar__nav-btn">個人興趣</a>
           <a href="/portfolio" data-view="portfolio" class="sidebar__nav-btn">作品集</a>
-          <a href="/baking" data-view="baking" class="sidebar__nav-btn">Baking</a>
+          <a href="/baking" data-view="baking" class="sidebar__nav-btn active">Baking</a>
         </nav>
         <p class="sidebar__copy">小雅，可能是此生修的最後一堂程式課</p>
       </div>
@@ -40,39 +40,31 @@
         <button type="button" class="back-btn" id="backBtn" aria-label="返回選單">← 返回</button>
       </header>
       <main class="app-main">
-        <section id="view-about" class="view view--active" aria-label="關於我">
+        <section id="view-baking" class="view view--active" aria-label="Baking 日誌">
           <div class="page__header fade-in">
-            <h1 class="page__title"><span class="page__title-en">ABOUT ME</span><span class="page__title-zh">關於我</span></h1>
-            <p>嗨！我請問點擊進來的大家，大家是在卷什麼呢？</p>
+            <h1 class="page__title"><span class="page__title-en">BAKING LOG</span><span class="page__title-zh">烘焙日誌</span></h1>
+            <p>把每次做甜點的成果，疊成一本會翻頁的回憶。</p>
           </div>
           <div class="page__body">
-            <div class="about-grid">
-              <div>
-                <img class="about-photo" src="../images/pic.jpg?v=20260412" alt="蔡雅涵的照片" />
-              </div>
-              <div class="about-info">
-                <h2>嗨，我是蔡雅涵</h2>
-                <p>就讀於 國立政治大學 廣告學系，最近很喜歡布丁狗。</p>
-                <div class="tag-list">
-                  <span class="tag">#設計</span>
-                  <span class="tag">#烘焙</span>
-                  <span class="tag">#旅行</span>
-                </div>
-                <h2>基本資料</h2>
-                <table class="skills-table">
-                  <tr><td>就讀學校</td><td>國立政治大學 廣告學系 數位內容學士學程</td></tr>
-                  <tr><td>年級</td><td>大學三年級</td></tr>
-                  <tr><td>居住城市</td><td>台灣台北（桃園人）</td></tr>
-                  <tr><td>Email</td><td>111508025@nccu.edu.tw</td></tr>
-                </table>
-                <h2>技能</h2>
-                <table class="skills-table">
-                  <tr><td>設計工具</td><td>Figma、Illustrator、Photoshop、Indesign...</td></tr>
-                  <tr><td>程式語言</td><td>很想放很多，但還在學習中、、</td></tr>
-                  <tr><td>其他</td><td>超會講笑話，康輔社學術專家</td></tr>
-                </table>
-                <br />
-                <a class="btn btn--primary" href="/portfolio">查看作品集 →</a>
+            <div class="baking-stage">
+              <p class="baking-hint">點擊最上面的卡片，照片會翻到最後一張。</p>
+              <div class="baking-stack" id="bakingStack" aria-live="polite">
+                <article class="bake-card is-top" data-bake-card>
+                  <img src="../images/bake.jpg?v=20260412" alt="焦糖布丁成品" />
+                  <div class="bake-card__meta"><h3>焦糖布丁</h3><p>2026/04/10 · 口感超滑順</p></div>
+                </article>
+                <article class="bake-card" data-bake-card>
+                  <img src="../images/photo.jpg?v=20260412" alt="烘焙過程紀錄" />
+                  <div class="bake-card__meta"><h3>巧克力餅乾</h3><p>2026/03/28 · 第一次掌握酥脆感</p></div>
+                </article>
+                <article class="bake-card" data-bake-card>
+                  <img src="../images/pic.jpg?v=20260412" alt="司康與茶點" />
+                  <div class="bake-card__meta"><h3>伯爵司康</h3><p>2026/03/12 · 奶香升級成功</p></div>
+                </article>
+                <article class="bake-card" data-bake-card>
+                  <img src="../images/yourpic.jpg?v=20260412" alt="蛋糕裝飾" />
+                  <div class="bake-card__meta"><h3>草莓鮮奶油蛋糕</h3><p>2026/02/20 · 擠花終於變順手</p></div>
+                </article>
               </div>
             </div>
           </div>

@@ -6,6 +6,8 @@
     { "source": "/portfolio", "destination": "/pages/portfolio" },
     { "source": "/portfolio/", "destination": "/pages/portfolio" },
     { "source": "/interests", "destination": "/pages/interests" },
-    { "source": "/interests/", "destination": "/pages/interests" }
+    { "source": "/interests/", "destination": "/pages/interests" },
+    { "source": "/baking", "destination": "/pages/baking" },
+    { "source": "/baking/", "destination": "/pages/baking" }
   ]
 }

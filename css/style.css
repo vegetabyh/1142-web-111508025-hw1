@@ -868,6 +868,75 @@ a.card {
   border-color: #fff;
 }
 
+.baking-stage {
+  min-height: 68vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem 0 2rem;
+}
+
+.baking-hint {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.baking-stack {
+  position: relative;
+  width: min(88vw, 520px);
+  height: min(62vh, 560px);
+  cursor: pointer;
+}
+
+.bake-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 10px solid #fff;
+  background: #fff;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
+  transform-origin: center 120%;
+  transition: transform 0.42s ease, opacity 0.42s ease;
+}
+
+.bake-card img {
+  width: 100%;
+  height: calc(100% - 86px);
+  object-fit: cover;
+  display: block;
+}
+
+.bake-card__meta {
+  height: 86px;
+  padding: 0.8rem 1rem;
+  background: #fffdf9;
+}
+
+.bake-card__meta h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.bake-card__meta p {
+  margin: 0.32rem 0 0;
+  font-size: 0.85rem;
+  color: #5e5a52;
+}
+
+.bake-card:nth-child(1) { transform: rotate(-2deg) translate(0, 0); z-index: 4; }
+.bake-card:nth-child(2) { transform: rotate(2.5deg) translate(14px, 14px); z-index: 3; }
+.bake-card:nth-child(3) { transform: rotate(-3deg) translate(-12px, 24px); z-index: 2; }
+.bake-card:nth-child(4) { transform: rotate(1.5deg) translate(8px, 32px); z-index: 1; }
+
+.bake-card.is-top { z-index: 9; }
+
+.bake-card.is-moving {
+  transform: translate(52px, -16px) rotate(10deg) scale(0.95);
+  opacity: 0.15;
+}
+
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
