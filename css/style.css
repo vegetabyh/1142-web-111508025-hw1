@@ -329,8 +329,8 @@ input[type='submit'] {
 }
 
 .hero__photo-placeholder {
-  width: min(280px, 100%);
-  max-width: 280px;
+  width: min(340px, 100%);
+  max-width: 340px;
   aspect-ratio: 11 / 14;
   height: auto;
   min-height: 0;
@@ -351,8 +351,8 @@ input[type='submit'] {
 }
 
 .hero__photo {
-  width: min(280px, 100%);
-  max-width: 280px;
+  width: min(340px, 100%);
+  max-width: 340px;
   aspect-ratio: 11 / 14;
   height: auto;
   min-height: 0;
