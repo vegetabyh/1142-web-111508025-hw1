@@ -967,12 +967,14 @@ a.card {
 
 .portfolio-item__img {
   width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
+  height: auto;
+  max-height: 620px;
+  object-fit: contain;
   display: block;
   transform: scale(1);
   transform-origin: center center;
   transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.35, 1);
+  background: var(--cream);
 }
 
 .portfolio-item:hover .portfolio-item__img {
@@ -982,40 +984,49 @@ a.card {
 .portfolio-item__img--logo,
 .portfolio-item__img--poster {
   object-fit: contain;
-  padding: 1.5rem 1.75rem;
+  padding: 1.2rem;
   background: var(--cream);
   box-sizing: border-box;
 }
 
-.portfolio-item__imgs--pair {
+.portfolio-gallery {
+  position: relative;
+  background: var(--cream);
+}
+
+.portfolio-gallery__viewport {
+  overflow: hidden;
+}
+
+.portfolio-gallery__track {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(0.5rem, 2vw, 1rem);
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  padding: 1rem 1.25rem;
-  background: var(--cream);
-  box-sizing: border-box;
+  transition: transform 0.35s ease;
 }
 
-.portfolio-item__img-pair {
-  flex: 1 1 0;
-  min-width: 0;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-  transform: scale(1);
-  transform-origin: center center;
-  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.35, 1);
+.portfolio-gallery__slide {
+  min-width: 100%;
 }
 
-.portfolio-item:hover .portfolio-item__img-pair {
-  transform: scale(1.05);
+.portfolio-gallery__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(18, 18, 18, 0.56);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.portfolio-gallery__btn--prev { left: 10px; }
+.portfolio-gallery__btn--next { right: 10px; }
+
+.portfolio-gallery__btn:hover {
+  background: rgba(18, 18, 18, 0.82);
 }
 
 .portfolio-item__img-placeholder {

@@ -52,6 +52,30 @@
         }, 420);
       });
     }
+
+    const galleries = document.querySelectorAll('[data-portfolio-gallery]');
+    galleries.forEach((gallery) => {
+      const track = gallery.querySelector('[data-gallery-track]');
+      const slides = track ? track.querySelectorAll('.portfolio-gallery__slide') : [];
+      const prevBtn = gallery.querySelector('[data-gallery-prev]');
+      const nextBtn = gallery.querySelector('[data-gallery-next]');
+      if (!track || slides.length <= 1 || !prevBtn || !nextBtn) return;
+      let index = 0;
+      const update = () => {
+        track.style.transform = `translateX(${-index * 100}%)`;
+      };
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        index = (index - 1 + slides.length) % slides.length;
+        update();
+      });
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        index = (index + 1) % slides.length;
+        update();
+      });
+      update();
+    });
   }
 
   if (backBtn) {
