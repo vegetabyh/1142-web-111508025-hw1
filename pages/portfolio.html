@@ -2,10 +2,166 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0;url=../index.html#portfolio" />
-  <title>重新導向…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>作品集 · 蔡雅涵</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <p>若未自動跳轉，請<a href="../index.html#portfolio">點此前往作品集</a>。</p>
+  <div class="layout" id="layout">
+    <aside class="sidebar" aria-label="網站選單與簡介">
+      <div class="sidebar__inner">
+        <div class="sidebar__avatar">
+          <img class="sidebar__avatar-img" src="../images/head.jpg?v=20260412" alt="蔡雅涵" />
+        </div>
+        <p class="sidebar__name">蔡雅涵</p>
+        <p class="sidebar__en">YAHAN · TSAI</p>
+        <p class="sidebar__tagline">設計 ｜ 創作 ｜ 探索</p>
+        <p class="sidebar__bio">佛陀開的店叫什麼？Photoshop！</p>
+        <div class="sidebar__social" aria-label="社群連結">
+          <a class="sidebar__social-link" href="https://www.instagram.com/vegetab.yh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram（另開新分頁）">IG</a>
+          <a class="sidebar__social-link" href="https://www.facebook.com/ya.han.JK0905?locale=zh_TW" target="_blank" rel="noopener noreferrer" aria-label="Facebook（另開新分頁）">FB</a>
+          <a class="sidebar__social-link" href="https://www.threads.com/@vegetab.yh?hl=zh-tw" target="_blank" rel="noopener noreferrer" aria-label="Threads（另開新分頁）">@</a>
+        </div>
+        <nav class="sidebar__nav" aria-label="主要導覽">
+          <a href="/" class="sidebar__nav-btn" data-view="home">首頁</a>
+          <a href="/about" class="sidebar__nav-btn" data-view="about">關於我</a>
+          <a href="/interests" class="sidebar__nav-btn" data-view="interests">個人興趣</a>
+          <a href="/portfolio" class="sidebar__nav-btn active" data-view="portfolio">作品集</a>
+        </nav>
+        <p class="sidebar__copy">小雅，可能是此生修的最後一堂程式課</p>
+      </div>
+    </aside>
+
+    <div class="main-wrap">
+      <header class="main-topbar">
+        <button type="button" class="back-btn" id="backBtn" aria-label="返回選單">← 返回</button>
+      </header>
+      <main class="app-main">
+        <section id="view-portfolio" class="view view--active" aria-label="作品集">
+          <div class="page__header fade-in">
+            <h1 class="page__title"><span class="page__title-en">PORTFOLIO</span><span class="page__title-zh">作品集</span></h1>
+            <p>沒有很厲害這個樣子。</p>
+          </div>
+          <div class="page__body">
+            <div class="portfolio-grid">
+              <article class="portfolio-item fade-in">
+                <img
+                  class="portfolio-item__img portfolio-item__img--logo"
+                  src="../images/logo.png?v=20260412"
+                  alt="公館森林品牌 Logo"
+                />
+                <div class="portfolio-item__info">
+                  <div class="portfolio-item__tags"><span class="tag">#設計</span><span class="tag">#品牌識別</span></div>
+                  <h3>公館森林</h3>
+                  <p>為公館森林品牌設計識別系統，包含 Logo、色彩規範與應用設計。</p>
+                </div>
+              </article>
+              <article class="portfolio-item fade-in">
+                <div class="portfolio-item__imgs portfolio-item__imgs--pair">
+                  <img
+                    class="portfolio-item__img-pair"
+                    src="../images/comedy.jpg?v=20260412"
+                    alt="藝術季喜劇表演活動海報"
+                  />
+                  <img
+                    class="portfolio-item__img-pair"
+                    src="../images/comedy2.jpg?v=20260412"
+                    alt="藝術季喜劇表演活動海報（版本二）"
+                  />
+                </div>
+                <div class="portfolio-item__info">
+                  <div class="portfolio-item__tags">
+                    <span class="tag">#活動海報</span><span class="tag">#平面設計</span>
+                  </div>
+                  <h3>活動海報</h3>
+                  <p>政大藝術季喜劇表演主視覺海報，呈現演出主題與場次資訊，讓觀眾一眼掌握活動亮點。</p>
+                </div>
+              </article>
+              <article class="portfolio-item fade-in">
+                <img
+                  class="portfolio-item__img portfolio-item__img--poster"
+                  src="../images/reelmate.jpg?v=20260412"
+                  alt="REELMATE 影評 App 介面"
+                />
+                <div class="portfolio-item__info">
+                  <div class="portfolio-item__tags"><span class="tag">#UI/UX</span><span class="tag">#APP</span></div>
+                  <h3>REELMATE</h3>
+                  <p>設計一款影評app，讓大家都可以互相交流。</p>
+                </div>
+              </article>
+              <article class="portfolio-item fade-in">
+                <img
+                  class="portfolio-item__img portfolio-item__img--poster"
+                  src="../images/mainvisual.jpg?v=20260412"
+                  alt="NCCU ARTFEST 主視覺"
+                />
+                <div class="portfolio-item__info">
+                  <div class="portfolio-item__tags"><span class="tag">#動態設計</span></div>
+                  <h3>NCCU ARTFEST</h3>
+                  <p>主視覺設計，但沒被選上</p>
+                </div>
+              </article>
+              <article class="portfolio-item fade-in">
+                <img
+                  class="portfolio-item__img portfolio-item__img--poster"
+                  src="../images/111508025_4.jpg?v=20260412"
+                  alt="個人名片設計"
+                />
+                <div class="portfolio-item__info">
+                  <div class="portfolio-item__tags"><span class="tag">#平面設計</span></div>
+                  <h3>個人名片設計</h3>
+                  <p>我喜歡綠色，紅配綠狗臭屁。</p>
+                </div>
+              </article>
+              <article class="portfolio-item fade-in">
+                <img
+                  class="portfolio-item__img portfolio-item__img--poster"
+                  src="../images/VIDEO.png?v=20260412"
+                  alt="台灣圖像角色大解密 動態作品 VIDEO"
+                />
+                <div class="portfolio-item__info">
+                  <div class="portfolio-item__tags">
+                    <span class="tag">#動態圖像</span><span class="tag">#After Effects</span>
+                  </div>
+                  <h3>台灣圖像角色大解密</h3>
+                  <p>以 After Effects 製作的動態圖像作品，探索台灣圖像角色與視覺文化。</p>
+                  <a
+                    class="portfolio-item__yt-link"
+                    href="https://www.youtube.com/watch?v=ExecZ18uJQk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >在 YouTube 觀看完整影片 →</a>
+                </div>
+              </article>
+              <article class="portfolio-item fade-in">
+                <div class="portfolio-item__imgs portfolio-item__imgs--pair">
+                  <img
+                    class="portfolio-item__img-pair"
+                    src="../images/A.jpg?v=20260412"
+                    alt="視覺傳達海報設計 A"
+                  />
+                  <img
+                    class="portfolio-item__img-pair"
+                    src="../images/B.jpg?v=20260412"
+                    alt="視覺傳達海報設計 B"
+                  />
+                </div>
+                <div class="portfolio-item__info">
+                  <div class="portfolio-item__tags">
+                    <span class="tag">#視覺傳達</span><span class="tag">#海報設計</span>
+                  </div>
+                  <h3>視覺傳達海報設計</h3>
+                  <p>以女性議題與社會刻板印象為核心，透過海報構圖與圖像語言，提出觀察與反思。</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="../js/main.js"></script>
 </body>
 </html>

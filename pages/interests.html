@@ -2,10 +2,86 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0;url=../index.html#interests" />
-  <title>重新導向…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>個人興趣 · 蔡雅涵</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <p>若未自動跳轉，請<a href="../index.html#interests">點此前往個人興趣</a>。</p>
+  <div class="layout" id="layout">
+    <aside class="sidebar" aria-label="網站選單與簡介">
+      <div class="sidebar__inner">
+        <div class="sidebar__avatar">
+          <img class="sidebar__avatar-img" src="../images/head.jpg?v=20260412" alt="蔡雅涵" />
+        </div>
+        <p class="sidebar__name">蔡雅涵</p>
+        <p class="sidebar__en">YAHAN · TSAI</p>
+        <p class="sidebar__tagline">設計 ｜ 創作 ｜ 探索</p>
+        <p class="sidebar__bio">佛陀開的店叫什麼？Photoshop！</p>
+        <div class="sidebar__social" aria-label="社群連結">
+          <a class="sidebar__social-link" href="https://www.instagram.com/vegetab.yh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram（另開新分頁）">IG</a>
+          <a class="sidebar__social-link" href="https://www.facebook.com/ya.han.JK0905?locale=zh_TW" target="_blank" rel="noopener noreferrer" aria-label="Facebook（另開新分頁）">FB</a>
+          <a class="sidebar__social-link" href="https://www.threads.com/@vegetab.yh?hl=zh-tw" target="_blank" rel="noopener noreferrer" aria-label="Threads（另開新分頁）">@</a>
+        </div>
+        <nav class="sidebar__nav" aria-label="主要導覽">
+          <a href="/" class="sidebar__nav-btn" data-view="home">首頁</a>
+          <a href="/about" class="sidebar__nav-btn" data-view="about">關於我</a>
+          <a href="/interests" class="sidebar__nav-btn active" data-view="interests">個人興趣</a>
+          <a href="/portfolio" class="sidebar__nav-btn" data-view="portfolio">作品集</a>
+        </nav>
+        <p class="sidebar__copy">小雅，可能是此生修的最後一堂程式課</p>
+      </div>
+    </aside>
+
+    <div class="main-wrap">
+      <header class="main-topbar">
+        <button type="button" class="back-btn" id="backBtn" aria-label="返回選單">← 返回</button>
+      </header>
+      <main class="app-main">
+        <section id="view-interests" class="view view--active" aria-label="個人興趣">
+          <div class="page__header fade-in">
+            <h1 class="page__title"><span class="page__title-en">INTERESTS</span><span class="page__title-zh">個人興趣</span></h1>
+            <p>歡迎大家跟我互動交流呦。</p>
+          </div>
+          <div class="page__body">
+            <div class="interests-grid">
+              <div class="interest-card interest-card--photo fade-in">
+                <div class="interest-card__icon">📸</div>
+                <h3>Photography</h3>
+                <p>不會攝影，很愛拍照。</p>
+              </div>
+              <div class="interest-card interest-card--music fade-in">
+                <div class="interest-card__icon">🎵</div>
+                <h3>Music</h3>
+                <p>熱愛聆聽各種音樂類型，擁有最hito的音樂好品味。</p>
+              </div>
+              <div class="interest-card interest-card--travel fade-in">
+                <div class="interest-card__icon">✈️</div>
+                <h3>Travel</h3>
+                <p>未來目標是當旅遊型網紅，大家付我錢看我出國。</p>
+              </div>
+              <div class="interest-card interest-card--movie fade-in">
+                <div class="interest-card__icon">🎬</div>
+                <h3>Movies</h3>
+                <p>最喜歡看電影，但沒有最喜歡的電影。</p>
+              </div>
+              <div class="interest-card interest-card--bake fade-in">
+                <div class="interest-card__icon">🍳</div>
+                <h3>Baking</h3>
+                <p>因為太喜歡吃蛋糕，所以決定自己做（外面太貴）。</p>
+              </div>
+              <div class="interest-card interest-card--painting fade-in">
+                <div class="interest-card__icon">🎨</div>
+                <h3>Painting</h3>
+                <p>很喜歡畫畫，想要有時間去畫室，程式語言誤我一生，真悲傷。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="../js/main.js"></script>
 </body>
 </html>

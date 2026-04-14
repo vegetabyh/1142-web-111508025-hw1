@@ -442,7 +442,8 @@ button {
   margin-top: 1rem;
 }
 
-button.card {
+button.card,
+a.card {
   font: inherit;
   color: inherit;
   text-align: left;
@@ -450,6 +451,7 @@ button.card {
   border: none;
   cursor: pointer;
   appearance: none;
+  text-decoration: none;
 }
 
 .card {

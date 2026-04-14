@@ -2,10 +2,83 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0;url=../index.html#about" />
-  <title>重新導向…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>關於我 · 蔡雅涵</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <p>若未自動跳轉，請<a href="../index.html#about">點此前往關於我</a>。</p>
+  <div class="layout" id="layout">
+    <aside class="sidebar" aria-label="網站選單與簡介">
+      <div class="sidebar__inner">
+        <div class="sidebar__avatar">
+          <img class="sidebar__avatar-img" src="../images/head.jpg?v=20260412" alt="蔡雅涵" />
+        </div>
+        <p class="sidebar__name">蔡雅涵</p>
+        <p class="sidebar__en">YAHAN · TSAI</p>
+        <p class="sidebar__tagline">設計 ｜ 創作 ｜ 探索</p>
+        <p class="sidebar__bio">佛陀開的店叫什麼？Photoshop！</p>
+        <div class="sidebar__social" aria-label="社群連結">
+          <a class="sidebar__social-link" href="https://www.instagram.com/vegetab.yh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram（另開新分頁）">IG</a>
+          <a class="sidebar__social-link" href="https://www.facebook.com/ya.han.JK0905?locale=zh_TW" target="_blank" rel="noopener noreferrer" aria-label="Facebook（另開新分頁）">FB</a>
+          <a class="sidebar__social-link" href="https://www.threads.com/@vegetab.yh?hl=zh-tw" target="_blank" rel="noopener noreferrer" aria-label="Threads（另開新分頁）">@</a>
+        </div>
+        <nav class="sidebar__nav" aria-label="主要導覽">
+          <a href="/" class="sidebar__nav-btn" data-view="home">首頁</a>
+          <a href="/about" class="sidebar__nav-btn active" data-view="about">關於我</a>
+          <a href="/interests" class="sidebar__nav-btn" data-view="interests">個人興趣</a>
+          <a href="/portfolio" class="sidebar__nav-btn" data-view="portfolio">作品集</a>
+        </nav>
+        <p class="sidebar__copy">小雅，可能是此生修的最後一堂程式課</p>
+      </div>
+    </aside>
+
+    <div class="main-wrap">
+      <header class="main-topbar">
+        <button type="button" class="back-btn" id="backBtn" aria-label="返回選單">← 返回</button>
+      </header>
+      <main class="app-main">
+        <section id="view-about" class="view view--active" aria-label="關於我">
+          <div class="page__header fade-in">
+            <h1 class="page__title"><span class="page__title-en">ABOUT ME</span><span class="page__title-zh">關於我</span></h1>
+            <p>嗨！我請問點擊進來的大家，大家是在卷什麼呢？</p>
+          </div>
+          <div class="page__body">
+            <div class="about-grid">
+              <div>
+                <img class="about-photo" src="../images/pic.jpg?v=20260412" alt="蔡雅涵的照片" />
+              </div>
+              <div class="about-info">
+                <h2>嗨，我是蔡雅涵</h2>
+                <p>就讀於 國立政治大學 廣告學系，最近很喜歡布丁狗。</p>
+                <div class="tag-list">
+                  <span class="tag">#設計</span>
+                  <span class="tag">#烘焙</span>
+                  <span class="tag">#旅行</span>
+                </div>
+                <h2>基本資料</h2>
+                <table class="skills-table">
+                  <tr><td>就讀學校</td><td>國立政治大學 廣告學系 數位內容學士學程</td></tr>
+                  <tr><td>年級</td><td>大學三年級</td></tr>
+                  <tr><td>居住城市</td><td>台灣台北（桃園人）</td></tr>
+                  <tr><td>Email</td><td>111508025@nccu.edu.tw</td></tr>
+                </table>
+                <h2>技能</h2>
+                <table class="skills-table">
+                  <tr><td>設計工具</td><td>Figma、Illustrator、Photoshop、Indesign...</td></tr>
+                  <tr><td>程式語言</td><td>很想放很多，但還在學習中、、</td></tr>
+                  <tr><td>其他</td><td>超會講笑話，康輔社學術專家</td></tr>
+                </table>
+                <br />
+                <a class="btn btn--primary" href="/portfolio">查看作品集 →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="../js/main.js"></script>
 </body>
 </html>
