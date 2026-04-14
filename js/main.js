@@ -32,7 +32,12 @@
   }
 
   function initLayout() {
-    if (!isMobile()) layout.classList.add('main-open');
+    if (!isMobile()) {
+      layout.classList.add('main-open');
+    } else if (pathToView() !== 'home') {
+      /* 手機子頁內容在 .main-wrap，未加 main-open 時會整塊在螢幕外 */
+      layout.classList.add('main-open');
+    }
     syncNav();
     const scrollMain = document.querySelector('.app-main');
     if (scrollMain) scrollMain.scrollTop = 0;
