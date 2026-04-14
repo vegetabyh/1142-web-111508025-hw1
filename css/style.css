@@ -989,9 +989,8 @@ a.card {
 }
 
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  column-count: 2;
+  column-gap: 1.2rem;
 }
 
 .portfolio-item {
@@ -1001,7 +1000,12 @@ a.card {
   transition:
     transform 0.45s cubic-bezier(0.34, 1.2, 0.56, 1),
     box-shadow 0.45s ease;
-  display: block;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 1.2rem;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
   background: var(--card-bg);
 }
 
@@ -1013,7 +1017,7 @@ a.card {
 .portfolio-item__img {
   width: 100%;
   height: auto;
-  max-height: 620px;
+  max-height: none;
   object-fit: contain;
   display: block;
   transform: scale(1);
@@ -1029,7 +1033,7 @@ a.card {
 .portfolio-item__img--logo,
 .portfolio-item__img--poster {
   object-fit: contain;
-  padding: 1.2rem;
+  padding: 0.6rem;
   background: var(--cream);
   box-sizing: border-box;
 }
@@ -1060,7 +1064,7 @@ a.card {
 .portfolio-gallery__slide .portfolio-item__img {
   width: 100%;
   height: auto;
-  max-height: 620px;
+  max-height: none;
   display: block;
 }
 
@@ -1156,7 +1160,7 @@ a.card {
 }
 
 .portfolio-item__info {
-  padding: 1.5rem;
+  padding: 1rem 0.95rem 1.05rem;
 }
 
 .portfolio-item__tags {
@@ -1168,7 +1172,7 @@ a.card {
 
 .portfolio-item__info h3 {
   font-size: 1rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .portfolio-item__info p {
@@ -1352,7 +1356,8 @@ a.card {
 
   .interests-grid,
   .portfolio-grid {
-    grid-template-columns: 1fr;
+    column-count: 1;
+    column-gap: 0;
   }
 
   .page__header,
