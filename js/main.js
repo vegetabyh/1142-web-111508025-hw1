@@ -34,8 +34,8 @@
   function initLayout() {
     if (!isMobile()) {
       layout.classList.add('main-open');
-    } else if (pathToView() !== 'home') {
-      /* 手機子頁內容在 .main-wrap，未加 main-open 時會整塊在螢幕外 */
+    } else {
+      /* 手機版也預設顯示右側主內容，與桌機閱讀流程一致 */
       layout.classList.add('main-open');
     }
     syncNav();
