@@ -856,6 +856,18 @@ a.card {
   margin-top: 0.9rem;
 }
 
+.interest-card__link.btn--outline {
+  background: #fff;
+  color: #1f2a25;
+  border-color: #fff;
+}
+
+.interest-card__link.btn--outline:hover {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
