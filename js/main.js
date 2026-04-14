@@ -100,6 +100,30 @@
     updateLabel();
   }
 
+  function initCowTrail() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    let lastStamp = 0;
+    document.addEventListener(
+      'pointermove',
+      (e) => {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        const now = performance.now();
+        if (now - lastStamp < 42) return;
+        lastStamp = now;
+
+        const mark = document.createElement('span');
+        mark.className = 'cow-trail';
+        mark.textContent = '🐄';
+        mark.style.left = e.clientX + 'px';
+        mark.style.top = e.clientY + 'px';
+        document.body.appendChild(mark);
+        mark.addEventListener('animationend', () => mark.remove(), { once: true });
+      },
+      { passive: true }
+    );
+  }
+
   function initLayout() {
     if (!isMobile()) {
       layout.classList.add('main-open');
@@ -244,4 +268,5 @@
 
   document.addEventListener('DOMContentLoaded', initLayout);
   document.addEventListener('DOMContentLoaded', initBackgroundMusic);
+  document.addEventListener('DOMContentLoaded', initCowTrail);
 })();

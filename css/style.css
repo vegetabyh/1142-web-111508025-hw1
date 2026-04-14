@@ -454,6 +454,30 @@ input[type='submit'] {
   margin-left: auto;
 }
 
+.cow-trail {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+  user-select: none;
+  font-size: 1.05rem;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  animation: cowTrailFade 560ms ease-out forwards;
+}
+
+@keyframes cowTrailFade {
+  0% {
+    opacity: 0.92;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -130%) scale(0.62);
+  }
+}
+
 .hero__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
