@@ -31,6 +31,42 @@
     });
   }
 
+  function initBackgroundMusic() {
+    const audio = document.createElement('audio');
+    audio.src = '/audio/kiiikiii.mp3';
+    audio.preload = 'none';
+    audio.loop = true;
+
+    const toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
+    toggleBtn.className = 'bgm-toggle';
+    toggleBtn.setAttribute('aria-pressed', 'false');
+    toggleBtn.textContent = '▶ 背景音樂 🎵';
+
+    const updateLabel = () => {
+      const playing = !audio.paused;
+      toggleBtn.textContent = (playing ? '⏸' : '▶') + ' 背景音樂 🎵';
+      toggleBtn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+    };
+
+    toggleBtn.addEventListener('click', async () => {
+      if (audio.paused) {
+        try {
+          await audio.play();
+        } catch (err) {
+          return;
+        }
+      } else {
+        audio.pause();
+      }
+      updateLabel();
+    });
+
+    audio.addEventListener('play', updateLabel);
+    audio.addEventListener('pause', updateLabel);
+    document.body.appendChild(toggleBtn);
+  }
+
   function initLayout() {
     if (!isMobile()) {
       layout.classList.add('main-open');
@@ -174,4 +210,5 @@
   });
 
   document.addEventListener('DOMContentLoaded', initLayout);
+  document.addEventListener('DOMContentLoaded', initBackgroundMusic);
 })();
