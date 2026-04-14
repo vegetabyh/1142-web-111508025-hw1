@@ -1387,7 +1387,12 @@ a.card {
     gap: 2rem;
   }
 
-  .interests-grid,
+  .interests-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
   .portfolio-grid {
     column-count: 1;
     column-gap: 0;
