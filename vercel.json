@@ -1,11 +1,5 @@
 {
   "cleanUrls": true,
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "^/about/?$", "dest": "/pages/about.html" },
-    { "src": "^/portfolio/?$", "dest": "/pages/portfolio.html" },
-    { "src": "^/interests/?$", "dest": "/pages/interests.html" }
-  ],
   "rewrites": [
     { "source": "/about", "destination": "/pages/about.html" },
     { "source": "/about/", "destination": "/pages/about.html" },
