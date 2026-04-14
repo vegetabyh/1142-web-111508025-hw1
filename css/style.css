@@ -1038,6 +1038,26 @@ a.card {
   box-sizing: border-box;
 }
 
+.portfolio-item--media-framed .portfolio-gallery__viewport {
+  padding: 0.6rem;
+  background: var(--cream);
+  box-sizing: border-box;
+}
+
+.portfolio-item--media-framed .portfolio-video {
+  padding: 0.6rem;
+  background: var(--cream);
+  box-sizing: border-box;
+  aspect-ratio: auto;
+}
+
+.portfolio-item--media-framed .portfolio-video iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+}
+
 .portfolio-gallery {
   position: relative;
   background: var(--cream);
