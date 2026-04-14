@@ -2,7 +2,10 @@
   "cleanUrls": true,
   "rewrites": [
     { "source": "/about", "destination": "/pages/about.html" },
+    { "source": "/about/", "destination": "/pages/about.html" },
     { "source": "/portfolio", "destination": "/pages/portfolio.html" },
-    { "source": "/interests", "destination": "/pages/interests.html" }
+    { "source": "/portfolio/", "destination": "/pages/portfolio.html" },
+    { "source": "/interests", "destination": "/pages/interests.html" },
+    { "source": "/interests/", "destination": "/pages/interests.html" }
   ]
 }
