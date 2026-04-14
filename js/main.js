@@ -53,27 +53,98 @@
       });
     }
 
-    const galleries = document.querySelectorAll('[data-portfolio-gallery]');
-    galleries.forEach((gallery) => {
+    document.querySelectorAll('[data-portfolio-gallery]').forEach((gallery) => {
       const track = gallery.querySelector('[data-gallery-track]');
       const slides = track ? track.querySelectorAll('.portfolio-gallery__slide') : [];
       const prevBtn = gallery.querySelector('[data-gallery-prev]');
       const nextBtn = gallery.querySelector('[data-gallery-next]');
-      if (!track || slides.length <= 1 || !prevBtn || !nextBtn) return;
+      const dotsRoot = gallery.querySelector('[data-gallery-dots]');
+      const viewport = gallery.querySelector('.portfolio-gallery__viewport');
+      if (!track || slides.length <= 1 || !prevBtn || !nextBtn || !dotsRoot || !viewport) return;
+
+      dotsRoot.innerHTML = '';
+      const dotButtons = [];
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'portfolio-gallery__dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('data-gallery-dot', String(i));
+        dot.setAttribute('aria-label', '第 ' + (i + 1) + ' 張');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        dotsRoot.appendChild(dot);
+        dotButtons.push(dot);
+      });
+
       let index = 0;
       const update = () => {
-        track.style.transform = `translateX(${-index * 100}%)`;
+        track.style.transform = 'translateX(' + -index * 100 + '%)';
+        dotButtons.forEach((dot, i) => {
+          const on = i === index;
+          dot.classList.toggle('is-active', on);
+          dot.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
       };
-      prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        index = (index - 1 + slides.length) % slides.length;
+
+      const go = (nextIndex) => {
+        index = ((nextIndex % slides.length) + slides.length) % slides.length;
         update();
+      };
+
+      prevBtn.addEventListener(
+        'click',
+        (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          go(index - 1);
+        },
+        { passive: false }
+      );
+      nextBtn.addEventListener(
+        'click',
+        (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          go(index + 1);
+        },
+        { passive: false }
+      );
+
+      dotButtons.forEach((dot) => {
+        dot.addEventListener(
+          'click',
+          (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const n = parseInt(dot.getAttribute('data-gallery-dot'), 10);
+            if (!Number.isNaN(n)) go(n);
+          },
+          { passive: false }
+        );
       });
-      nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        index = (index + 1) % slides.length;
-        update();
-      });
+
+      let touchStartX = null;
+      viewport.addEventListener(
+        'touchstart',
+        (e) => {
+          touchStartX = e.touches[0].clientX;
+        },
+        { passive: true }
+      );
+      viewport.addEventListener(
+        'touchend',
+        (e) => {
+          if (touchStartX == null) return;
+          const endX = e.changedTouches[0].clientX;
+          const dx = endX - touchStartX;
+          touchStartX = null;
+          if (Math.abs(dx) < 48) return;
+          if (dx < 0) go(index + 1);
+          else go(index - 1);
+        },
+        { passive: true }
+      );
+
       update();
     });
   }

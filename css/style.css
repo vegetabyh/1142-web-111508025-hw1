@@ -992,41 +992,105 @@ a.card {
 .portfolio-gallery {
   position: relative;
   background: var(--cream);
+  z-index: 1;
 }
 
 .portfolio-gallery__viewport {
   overflow: hidden;
+  position: relative;
+  touch-action: pan-y;
 }
 
 .portfolio-gallery__track {
   display: flex;
   transition: transform 0.35s ease;
+  will-change: transform;
 }
 
 .portfolio-gallery__slide {
   min-width: 100%;
+  flex: 0 0 100%;
+}
+
+.portfolio-gallery__slide .portfolio-item__img {
+  width: 100%;
+  height: auto;
+  max-height: 620px;
+  display: block;
 }
 
 .portfolio-gallery__btn {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  width: 34px;
-  height: 34px;
+  margin-top: -22px;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
   border: 0;
   background: rgba(18, 18, 18, 0.56);
   color: #fff;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   line-height: 1;
+  z-index: 4;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  display: grid;
+  place-items: center;
+  padding: 0;
 }
 
-.portfolio-gallery__btn--prev { left: 10px; }
-.portfolio-gallery__btn--next { right: 10px; }
+.portfolio-gallery__btn--prev { left: 8px; }
+.portfolio-gallery__btn--next { right: 8px; }
 
-.portfolio-gallery__btn:hover {
+.portfolio-gallery__btn:hover,
+.portfolio-gallery__btn:focus-visible {
   background: rgba(18, 18, 18, 0.82);
+  outline: none;
+}
+
+.portfolio-gallery__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.65rem 0.5rem 0.85rem;
+  background: var(--cream);
+  flex-wrap: wrap;
+}
+
+.portfolio-gallery__dot {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.portfolio-gallery__dot::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.portfolio-gallery__dot.is-active::before {
+  background: var(--accent2);
+  transform: scale(1.2);
+}
+
+.portfolio-gallery__dot:focus-visible {
+  outline: 2px solid var(--accent2);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .portfolio-item__img-placeholder {
