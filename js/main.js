@@ -32,19 +32,46 @@
   }
 
   function initBackgroundMusic() {
-    const toggleBtn = document.querySelector('[data-bgm-toggle]');
+    const STORAGE_ENABLED_KEY = 'bgm-enabled';
+    const STORAGE_TIME_KEY = 'bgm-current-time';
+
+    let toggleBtn = document.querySelector('[data-bgm-toggle]');
+    if (!toggleBtn) {
+      const topbar = document.querySelector('.main-topbar');
+      if (topbar) {
+        toggleBtn = document.createElement('button');
+        toggleBtn.type = 'button';
+        toggleBtn.className = 'btn btn--outline bgm-toggle bgm-toggle--topbar';
+        toggleBtn.setAttribute('data-bgm-toggle', '');
+        topbar.appendChild(toggleBtn);
+      }
+    }
     if (!toggleBtn) return;
 
     const audio = document.createElement('audio');
     audio.src = '/audio/kiiikiii.mp3';
-    audio.preload = 'none';
+    audio.preload = 'auto';
     audio.loop = true;
+
+    const persistedEnabled = sessionStorage.getItem(STORAGE_ENABLED_KEY) === 'true';
+    const persistedTime = parseFloat(sessionStorage.getItem(STORAGE_TIME_KEY) || '0');
 
     const updateLabel = () => {
       const playing = !audio.paused;
       toggleBtn.textContent = (playing ? '⏸' : '▶') + ' 背景音樂 🎵';
       toggleBtn.setAttribute('aria-pressed', playing ? 'true' : 'false');
     };
+
+    const persistState = () => {
+      sessionStorage.setItem(STORAGE_ENABLED_KEY, String(!audio.paused));
+      sessionStorage.setItem(STORAGE_TIME_KEY, String(audio.currentTime || 0));
+    };
+
+    audio.addEventListener('loadedmetadata', () => {
+      if (Number.isFinite(persistedTime) && persistedTime > 0) {
+        audio.currentTime = Math.min(persistedTime, Math.max(audio.duration - 0.25, 0));
+      }
+    });
 
     toggleBtn.addEventListener('click', async () => {
       if (audio.paused) {
@@ -56,11 +83,20 @@
       } else {
         audio.pause();
       }
+      persistState();
       updateLabel();
     });
 
+    audio.addEventListener('timeupdate', persistState);
     audio.addEventListener('play', updateLabel);
     audio.addEventListener('pause', updateLabel);
+    window.addEventListener('beforeunload', persistState);
+
+    if (persistedEnabled) {
+      audio.play().catch(() => {
+        /* 某些瀏覽器在換頁後仍需要一次互動才允許有聲播放 */
+      });
+    }
     updateLabel();
   }
 

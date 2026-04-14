@@ -450,6 +450,10 @@ input[type='submit'] {
   transform: translateY(-1px);
 }
 
+.bgm-toggle--topbar {
+  margin-left: auto;
+}
+
 .hero__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
